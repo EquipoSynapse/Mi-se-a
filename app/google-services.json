@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "156217151665",
+    "project_id": "dactilogo-48468",
+    "storage_bucket": "dactilogo-48468.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156217151665:android:ceec1adf833853aade1290",
+        "android_client_info": {
+          "package_name": "com.synapse.dactilogo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156217151665-1o9osjtcphirc3q0m17099dhcdrugrp3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.synapse.dactilogo",
+            "certificate_hash": "54a5396b61b61acd737d8de73ca8ca84fe16055c"
+          }
+        },
+        {
+          "client_id": "156217151665-ugbgl8tjfr3c4uhvh6qc1jnb5fr1taqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmImetGN768_xzGYrqE0XZXu-iQmZsWzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156217151665-ugbgl8tjfr3c4uhvh6qc1jnb5fr1taqg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
