@@ -15,6 +15,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiSeña">
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Pantalla de bienvenida -->
+        <activity android:name=".WelcomeActivity"/>
+
+
         <activity android:name=".M.P4"></activity>
         <activity android:name=".M.P3" />
         <activity android:name=".M.p2" />

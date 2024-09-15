@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="piel">#FFDE8C</color>
     <color name="sombra">#4D000000</color>
+    <color name="fondo_base">#120F3C</color>
+    <color name="button_color">#CF2E64</color>
 
     <color name="Color0">#605959</color>
     <color name="Color1">#000000</color>
