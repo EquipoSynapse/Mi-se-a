@@ -12,15 +12,15 @@
     <color name="fondo_base">#120F3C</color>
     <color name="button_color">#CF2E64</color>
 
-    <color name="Color0">#605959</color>
-    <color name="Color1">#000000</color>
-    <color name="Color2">#144278</color>
-    <color name="Color3">#718DAE</color>
+    <color name="Color0">#CF2E64</color>
+    <color name="Color1">#6EC099</color>
+    <color name="Color2">#FFFFFF</color>
+    <color name="Color3">#DFE4E4</color>
 
-    <color name="Fondo0">#474747</color>
-    <color name="Fondo1">#707070</color>
-    <color name="Fondo2">#A8A8A8</color>
-    <color name="Fondo3">#E1E1E1</color>
+    <color name="Fondo0">#120F3C</color>
+    <color name="Fondo1">#231F50</color>
+    <color name="Fondo2">#65628E</color>
+    <color name="Fondo3">#CAC8DA</color>
 
 
 
