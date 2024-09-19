@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/Fondo0"
     tools:context=".M.P2">
 
     <LinearLayout
@@ -13,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/fondo1"
-        android:backgroundTint="@color/Fondo2"
+        android:backgroundTint="@color/Fondo3"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:padding="10dp"
@@ -23,7 +24,8 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/r5"/>
+            android:src="@drawable/r5"
+            app:tint="@color/Fondo1"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -32,23 +34,23 @@
             android:text="@string/t5"
             android:layout_margin="5dp"
             android:textStyle="bold"
-            android:textColor="@color/Color1"
-            android:textSize="12dp"/>
+            android:textColor="@color/Color0"
+            android:textSize="10dp"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
         android:orientation="vertical">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="350dp"
+            android:layout_margin="20dp"
             android:background="@drawable/fondo2"
-            android:backgroundTint="@color/Fondo2"
+            android:backgroundTint="@color/Fondo3"
             android:orientation="vertical">
 
             <ImageView
@@ -62,14 +64,28 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/ID3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/r6"
                 android:layout_margin="20dp"
+                android:src="@drawable/r10"
+                app:tint="@color/Fondo1"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Grabar voz"
+                android:layout_marginRight="15dp"
+                android:textColor="@color/Color0"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ID3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -82,9 +98,10 @@
                 android:id="@+id/ID4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:text="..."
                 android:layout_weight="1"
-                android:textSize="12dp"
+                android:textSize="10dp"
                 android:textColor="@color/Color1"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"/>
@@ -94,38 +111,83 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:background="@color/Fondo2"
+                android:padding="20dp"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/ID5"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/r8"
-                    android:layout_weight="1"
-                    android:layout_margin="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/ID6"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/r10"
-                    android:layout_weight="1"
-                    android:layout_margin="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    <ImageView
+                        android:id="@+id/ID5"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/r8"
+                        android:layout_weight="1"
+                        app:tint="@color/Fondo3"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
 
-                <ImageView
-                    android:id="@+id/ID7"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/r9"
-                    android:layout_weight="1"
-                    android:layout_margin="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    <ImageView
+                        android:id="@+id/ID6"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/r17"
+                        android:layout_weight="1"
+                        app:tint="@color/Fondo3"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
 
+                    <ImageView
+                        android:id="@+id/ID7"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/r9"
+                        android:layout_weight="1"
+                        app:tint="@color/Fondo3"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:textColor="@color/Color1"
+                        android:textStyle="bold"
+                        android:textSize="10dp"
+                        android:text="Teclado Dactilogo"/>
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:textColor="@color/Color1"
+                        android:textStyle="bold"
+                        android:textSize="10dp"
+                        android:text="Reproducir voz"/>
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:textColor="@color/Color1"
+                        android:textStyle="bold"
+                        android:textSize="10dp"
+                        android:text="Teclado Convencional"/>
+
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>

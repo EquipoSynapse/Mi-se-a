@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.synapse.dactilogo.M.P2;
+import com.synapse.dactilogo.M.P3;
+import com.synapse.dactilogo.M.P4;
 import com.synapse.dactilogo.MainActivity;
 import com.synapse.dactilogo.R;
 
@@ -49,12 +51,12 @@ public class P1 extends AppCompatActivity {
 
         //Al clickear un modo el constraintlatout se tornara de color negativo y la imagen se deslizará a la derecha, el LineartLayout se esconderá y se vanzará a la siguiente Activity
 
-        cod1.setOnClickListener(v -> Animación(cod1, cod4, cod7)); //Entrando al modo Básico
-        cod2.setOnClickListener(v -> Animación(cod2, cod5, cod8)); //Entrando al modo Perfil
-        cod3.setOnClickListener(v -> Animación(cod3, cod6, cod9)); //Entrando al modo Premium
+        cod1.setOnClickListener(v -> Animación(cod1, cod4, cod7, P2.class)); //Entrando al modo Básico
+        cod2.setOnClickListener(v -> Animación(cod2, cod5, cod8, P3.class)); //Entrando al modo Perfil
+        cod3.setOnClickListener(v -> Animación(cod3, cod6, cod9, P4.class)); //Entrando al modo Premium
     }
 
-    private void Animación(ConstraintLayout layout, ImageView image, LinearLayout linearLayout) {
+    private void Animación(ConstraintLayout layout, ImageView image, LinearLayout linearLayout, Class<?> nextActivity) {
         // Cambiar el fondo del ConstraintLayout a blanco
         layout.setBackgroundColor(getResources().getColor(android.R.color.white));
 
@@ -73,7 +75,7 @@ public class P1 extends AppCompatActivity {
         linearLayout.setVisibility(View.GONE);
 
 
-        Intent intent = new Intent(P1.this, P2.class);
-        //startActivity(intent);
+        Intent intent = new Intent(P1.this, nextActivity);
+        startActivity(intent); // Lanzar la nueva actividad
     }
 }

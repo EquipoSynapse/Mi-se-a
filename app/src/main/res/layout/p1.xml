@@ -6,17 +6,31 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
+    android:background="@color/Fondo0"
     android:layout_height="match_parent"
     tools:context=".P.P1">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="20dp"
-        android:textColor="@color/Color1"
-        android:gravity="center_horizontal"
-        android:textStyle="bold"/>
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="20dp"
+            android:textColor="@color/Color0"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
 
 
 
@@ -40,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/t4"
                 android:textSize="12dp"
-                android:textColor="@color/Color1"
+                android:textColor="@color/Color0"
                 android:gravity="right"
                 android:layout_weight="1"
                 android:layout_marginHorizontal="10dp"
@@ -49,7 +63,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@color/Color1"/>
+                android:src="@color/Color0"/>
 
         </LinearLayout>
 
@@ -61,7 +75,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/fondo2"
-            android:backgroundTint="@color/Fondo2"
+            android:backgroundTint="@color/Fondo3"
             android:padding="10dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -99,14 +113,15 @@
                         android:layout_height="30dp"
                         android:layout_gravity="right"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/r4" />
+                        android:src="@drawable/r4"
+                        app:tint="@color/Fondo0" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:text="@string/t1"
-                        android:textColor="@color/Color1"
+                        android:textColor="@color/Color0"
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
@@ -122,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/fondo2"
-            android:backgroundTint="@color/Fondo2"
+            android:backgroundTint="@color/Fondo3"
             android:padding="10dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -160,14 +175,15 @@
                         android:layout_height="30dp"
                         android:layout_gravity="right"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/r4" />
+                        android:src="@drawable/r4"
+                        app:tint="@color/Fondo0" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:text="@string/t2"
-                        android:textColor="@color/Color1"
+                        android:textColor="@color/Color0"
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
@@ -184,7 +200,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/fondo2"
-            android:backgroundTint="@color/Fondo2"
+            android:backgroundTint="@color/Fondo3"
             android:padding="10dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -222,14 +238,15 @@
                         android:layout_height="30dp"
                         android:layout_gravity="right"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/r4" />
+                        android:src="@drawable/r4"
+                        app:tint="@color/Fondo0" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:text="@string/t3"
-                        android:textColor="@color/Color1"
+                        android:textColor="@color/Color0"
                         android:textSize="20dp"
                         android:textStyle="bold" />
 

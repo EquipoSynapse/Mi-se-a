@@ -6,7 +6,9 @@
         android:glEsVersion="0x00020000"
         android:required="true" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -15,22 +17,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiSeña">
-        <activity android:name=".SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <!-- Pantalla de bienvenida -->
         <activity android:name=".WelcomeActivity"/>
 
 
-        <activity android:name=".M.P4"></activity>
+        <activity android:name=".P.P1"></activity>
         <activity android:name=".M.P3" />
-        <activity android:name=".M.p2" />
+        <activity android:name=".M.P4" />
+        <activity android:name=".M.P2" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".P.P1">
+        <activity android:name=".P.P5">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

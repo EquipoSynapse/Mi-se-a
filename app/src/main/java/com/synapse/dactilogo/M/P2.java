@@ -256,8 +256,8 @@ public class P2 extends AppCompatActivity {
                     .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
 
             // Dividir el texto hablado en palabras
-            String[] palabras = spokenTextNormalizado.split("\\s+");  // Dividir por espacios
-            String[] palabrasOriginales = subtituloText.split("\\s+");  // Dividir el texto original para subtítulos
+            String[] palabras = spokenTextNormalizado.split(" ");  // Dividir por espacios
+            String[] palabrasOriginales = subtituloText.split(" ");  // Dividir el texto original para subtítulos
 
             // Variable para llevar el tiempo de retraso acumulado
             int delay = 0;

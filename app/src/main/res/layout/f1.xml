@@ -10,14 +10,13 @@
         android:id="@+id/ID39"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@drawable/fondo2"
-        android:backgroundTint="@color/Fondo3"
+        android:background="@color/Fondo3"
         android:padding="3dp"
         android:layout_marginHorizontal="5dp"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:textSize="12dp"
-        android:textColor="@color/Color3"/>
+        android:textColor="@color/Fondo1"/>
 
     <LinearLayout
         android:layout_width="match_parent"
