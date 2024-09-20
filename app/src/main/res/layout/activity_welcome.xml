@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo_base"> <!-- Asumiendo un fondo negro -->
+    android:background="@color/fondo_base">
 
     <ImageView
         android:id="@+id/logoImageView"
@@ -16,22 +16,22 @@
         android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido a Mi señá"
-        android:textSize="24sp"
+        android:text="Bienvenido a Mi seña"
+        android:textSize="30sp"
         android:textColor="#FFFFFF"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/logoImageView"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="30dp"/>
 
     <TextView
         android:id="@+id/descriptionTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_description"
-        android:textSize="16sp"
+        android:textSize="26sp"
         android:textColor="#DDDDDD"
         android:layout_below="@id/welcomeTextView"
-        android:padding="20dp"/>
+        android:padding="26dp"/>
 
     <Button
         android:id="@+id/continueButton"
@@ -40,7 +40,7 @@
         android:text="Continuar"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/descriptionTextView"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="23dp"
         android:background="@color/button_color" />
 
 </RelativeLayout>
