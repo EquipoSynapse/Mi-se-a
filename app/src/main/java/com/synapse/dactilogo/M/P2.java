@@ -8,7 +8,9 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -49,12 +51,14 @@ public class P2 extends AppCompatActivity {
     TextView cod4; //Subtitulos
     ImageView cod5, cod6, cod7; //Boton teclado dactilo - Boton convertir a voz - Boton teclado estandar
     String s1 = " "; //Palabras analizadas ya sean escritas o habladas
+    private SharedPreferences PreferencesModo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p2);
 
+        PreferencesModo = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         //Iniciamos el paquete de señas inicial
         PaquetePorDefecto();
         //Iniciamos la voz digital
@@ -100,6 +104,10 @@ public class P2 extends AppCompatActivity {
                 Intent intent = new Intent(P2.this, P1.class);
                 startActivity(intent); // Lanzar la nueva actividad
                 finish();
+                // Guardar el nuevo valor
+                SharedPreferences.Editor editor = PreferencesModo.edit();
+                editor.putInt("mi_int_clave", 0);
+                editor.apply();  // Guardar de forma asincrónica
             }
         });
 

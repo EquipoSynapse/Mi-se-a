@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:background="@color/Fondo3"
+    android:layout_gravity="right"
+    android:padding="5dp"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/ID1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Perfil"
+            android:layout_weight="1"
+            android:textColor="@color/Color1"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:tint="@color/Fondo2"
+            android:src="@drawable/r22"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ID2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardado"
+            android:layout_weight="1"
+            android:textColor="@color/Color1"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:tint="@color/Fondo2"
+            android:src="@drawable/r23"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ID3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajustes"
+            android:layout_weight="1"
+            android:textColor="@color/Color1"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:tint="@color/Fondo2"
+            android:src="@drawable/r24"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ID4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Condiciones"
+            android:layout_weight="1"
+            android:textColor="@color/Color1"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:tint="@color/Fondo2"
+            android:src="@drawable/r25"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ID5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Soporte"
+            android:layout_weight="1"
+            android:textColor="@color/Color1"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:tint="@color/Fondo2"
+            android:src="@drawable/r26"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ID6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Youtube"
+            android:layout_weight="1"
+            android:textColor="@color/Color1"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:tint="@color/Fondo2"
+            android:src="@drawable/r27"/>
+
+    </LinearLayout>
+
+</LinearLayout>

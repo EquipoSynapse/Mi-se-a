@@ -8,9 +8,13 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognitionListener;
@@ -18,10 +22,13 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
 import android.util.Base64;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,11 +58,15 @@ public class P3 extends AppCompatActivity {
     ImageView cod10, cod11, cod12; //Boton teclado dactilo - Boton convertir a voz - Boton teclado estandar
     String s1 = " "; //Palabras analizadas ya sean escritas o habladas
 
+    Dialog DIALOGO;
+    int I1 = 500; //valor de velocidad
+    private SharedPreferences PreferencesModo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p3);
 
+        PreferencesModo = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         //Iniciamos el paquete de señas inicial
         PaquetePorDefecto();
         //Iniciamos la voz digital
@@ -92,6 +103,7 @@ public class P3 extends AppCompatActivity {
         cod10 = findViewById(R.id.ID10); //Boton teclado dactilo
         cod11 = findViewById(R.id.ID11); //Boton convertir a voz
         cod12 = findViewById(R.id.ID12); //Boton teclado estandar
+        DIALOGO = new Dialog(this);
         //    --Vinculación de las ID del layout--
 
 
@@ -106,7 +118,116 @@ public class P3 extends AppCompatActivity {
                 Intent intent = new Intent(P3.this, P1.class);
                 startActivity(intent); // Lanzar la nueva actividad
                 finish();
+                // Guardar el nuevo valor
+                SharedPreferences.Editor editor = PreferencesModo.edit();
+                editor.putInt("mi_int_clave", 0);
+                editor.apply();  // Guardar de forma asincrónica
             }
+        });
+
+
+        cod4.setOnClickListener(view -> {
+            DIALOGO.setContentView(R.layout.f2);
+            DIALOGO.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            WindowManager.LayoutParams layoutParams = DIALOGO.getWindow().getAttributes();
+            layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+            layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            layoutParams.gravity = Gravity.TOP;
+
+            LinearLayout Diologo_cod1 = DIALOGO.findViewById(R.id.ID1);
+            LinearLayout Diologo_cod2 = DIALOGO.findViewById(R.id.ID2);
+            LinearLayout Diologo_cod3 = DIALOGO.findViewById(R.id.ID3);
+            LinearLayout Diologo_cod4 = DIALOGO.findViewById(R.id.ID4);
+            LinearLayout Diologo_cod5 = DIALOGO.findViewById(R.id.ID5);
+            LinearLayout Diologo_cod6 = DIALOGO.findViewById(R.id.ID6);
+
+            Diologo_cod1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DIALOGO.dismiss();
+                }
+            });
+
+            Diologo_cod2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DIALOGO.dismiss();
+                }
+            });
+
+            Diologo_cod3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DIALOGO.dismiss();
+                }
+            });
+
+            Diologo_cod4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DIALOGO.dismiss();
+                }
+            });
+
+            Diologo_cod5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DIALOGO.dismiss();
+                }
+            });
+
+            Diologo_cod6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DIALOGO.dismiss();
+                }
+            });
+
+            DIALOGO.show();
+        });
+
+        cod8.setOnClickListener(view -> {
+            DIALOGO.setContentView(R.layout.f3);
+            DIALOGO.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            WindowManager.LayoutParams layoutParams = DIALOGO.getWindow().getAttributes();
+            layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+            layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            layoutParams.gravity = Gravity.CENTER;
+
+            TextView Diologo_cod1 = DIALOGO.findViewById(R.id.ID1);
+            SeekBar Diologo_cod2 = DIALOGO.findViewById(R.id.ID2);
+
+            // Configurar el rango del SeekBar entre 500 y 2000
+            Diologo_cod2.setMax(2000 - 500); // El rango es 1500 (2000 - 500)
+
+            // Establecer el valor inicial (por ejemplo, 2000)
+            Diologo_cod2.setProgress(I1 - 500); // Progreso relativo al mínimo (500)
+
+            // Mostrar el valor inicial en el TextView
+            Diologo_cod1.setText(String.valueOf(I1));
+
+            // Listener para detectar cambios en el SeekBar
+            Diologo_cod2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    // Actualizar el valor actual basado en el progreso del SeekBar
+                    I1 = 500 + progress;
+                    // Actualizar el texto del TextView para mostrar el valor actual
+                    Diologo_cod1.setText(String.valueOf(I1));
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+                    // No se necesita acción aquí
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    // No se necesita acción aquí
+                }
+            });
+
+            DIALOGO.show();
         });
 
         //Activar función para grabar voz

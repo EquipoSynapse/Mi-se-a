@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/fondo2"
+    android:backgroundTint="@color/Fondo3"
+    android:layout_marginHorizontal="50dp"
+    android:layout_gravity="center"
+    android:padding="20dp"
+    android:orientation="vertical">
+
+    <!-- TextView para mostrar el valor actual del SeekBar -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Velocidad"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:textColor="@color/Color1"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/ID1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="500"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:textColor="@color/Color1"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- SeekBar para ajustar el valor entre 500 y 1500 -->
+    <SeekBar
+        android:id="@+id/ID2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:thumbTint="@color/Fondo0"
+        android:progressTint="@color/Fondo1"
+        android:progressBackgroundTint="@color/Fondo0"/>
+</LinearLayout>

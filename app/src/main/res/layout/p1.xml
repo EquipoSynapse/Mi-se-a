@@ -61,6 +61,7 @@
                 android:textStyle="bold"/>
 
             <ImageView
+                android:id="@+id/ID10"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@color/Color0"/>
@@ -109,6 +110,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/ID11"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="right"
@@ -171,6 +173,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/ID12"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="right"
@@ -234,6 +237,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/ID13"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="right"
