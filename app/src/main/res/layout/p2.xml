@@ -10,7 +10,7 @@
     tools:context=".M.P2">
 
     <LinearLayout
-        android:id="@+id/id1"
+        android:id="@+id/ID1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/fondo1"

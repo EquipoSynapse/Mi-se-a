@@ -12,13 +12,13 @@
     <string name="t7">No es un solo curso, es traducción real</string>
     <string name="t8">Un puente entre la voz y las señas</string>
     <string name="t9">Conectando ideas y fomentando la inclusión a través de este programa que más que un curso ofrese traducción en tiempo real</string>
-    <string name="logo">Logo de la aplicación</string>
+    <string name="t10">Usuario clásico</string>
+    <string name="t11">Usuario Premium</string>
 
     <string name="app_description">Una app para ayudarte traducir, convertir y comunicarte de lenguaje hablado a lenguaje de signos.
 
 Es la primera aplicación multiplataforma que aporta bienestar y seguridad a la comunidad sordo muda nicaragüense.
 </string>
-    <!-- Añade más cadenas según necesites -->
 
 
 

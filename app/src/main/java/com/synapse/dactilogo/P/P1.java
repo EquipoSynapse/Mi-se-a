@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.transition.TransitionManager;
 import android.view.View;
 import android.widget.ImageView;
@@ -75,7 +76,11 @@ public class P1 extends AppCompatActivity {
         linearLayout.setVisibility(View.GONE);
 
 
-        Intent intent = new Intent(P1.this, nextActivity);
-        startActivity(intent); // Lanzar la nueva actividad
+        // Usar un Handler para retrasar el lanzamiento de la nueva actividad
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(P1.this, nextActivity);
+            startActivity(intent); // Lanzar la nueva actividad después de la animación
+            finish(); // Finalizar la actividad actual para no volver atrás
+        }, 800); // El retraso es de 1 segundo (1000 milisegundos) para que la animación se aprecie
     }
 }

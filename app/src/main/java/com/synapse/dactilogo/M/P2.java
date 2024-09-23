@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,8 +16,10 @@ import android.os.Handler;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.speech.tts.TextToSpeech;
 import android.util.Base64;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,24 +31,41 @@ import com.synapse.dactilogo.R;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class P2 extends AppCompatActivity {
-
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
     private SpeechRecognizer speechRecognizer;
+    private TextToSpeech textToSpeech;
+
     LinearLayout cod1; //Boton atrás
     ImageView cod2, cod3; //Visor de señas - grabar o reproducir
     TextView cod4; //Subtitulos
     ImageView cod5, cod6, cod7; //Boton teclado dactilo - Boton convertir a voz - Boton teclado estandar
+    String s1 = " "; //Palabras analizadas ya sean escritas o habladas
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p2);
+
+        //Iniciamos el paquete de señas inicial
+        PaquetePorDefecto();
+        //Iniciamos la voz digital
+        textToSpeech = new TextToSpeech(this, status -> {
+            if (status == TextToSpeech.SUCCESS) {
+                textToSpeech.setLanguage(new Locale("es", "ES"));
+            }
+        });
+
+
+
 
         //Verica los permisos de audio
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
@@ -57,6 +77,8 @@ public class P2 extends AppCompatActivity {
             initializeSpeechRecognizer();
         }
 
+
+        //    --Vinculación de las ID del layout--
         cod1 = findViewById(R.id.ID1); //Botón atrás
         cod2 = findViewById(R.id.ID2); //Visor
         cod3 = findViewById(R.id.ID3); //grabar o reproducir
@@ -64,6 +86,22 @@ public class P2 extends AppCompatActivity {
         cod5 = findViewById(R.id.ID5); //Boton teclado dactilo
         cod6 = findViewById(R.id.ID6); //Boton convertir a voz
         cod7 = findViewById(R.id.ID7); //Boton teclado estandar
+        //    --Vinculación de las ID del layout--
+
+
+
+        //    --Botones--
+
+
+        //Activar función para regresar a la pantala anterior (Eleccion de modos)
+        cod1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(P2.this, P1.class);
+                startActivity(intent); // Lanzar la nueva actividad
+                finish();
+            }
+        });
 
         //Activar función para grabar voz
         cod3.setOnClickListener(view -> startSpeechRecognition());
@@ -72,23 +110,66 @@ public class P2 extends AppCompatActivity {
         cod5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showKeyboardDialog();
+                TecladoDactilogo();
             }
         });
 
         //Activar función para convertir a voz
-        cod6.setOnClickListener(v -> {
-
-        });
+        cod6.setOnClickListener(v -> textToSpeech.speak(s1, TextToSpeech.QUEUE_FLUSH, null, null));
 
         //Activar función para teclado estandar
         cod7.setOnClickListener(v -> {
-
+            TecladoEstandar();
         });
+        //    --Botones--
     }
 
+    //Funcion para extraer el primer paquete de señas
+    private void PaquetePorDefecto() {
+        try {
+            // Accedemos al archivo en res/raw con su ID
+            InputStream inputStream = getResources().openRawResource(R.raw.paq1);
+
+            // Definimos la ruta base del almacenamiento externo
+            File externalDir = getExternalFilesDir(null);
+
+            // Creamos las carpetas Paquetes, 2D y Activados si no existen
+            File carpetaPaquetes = new File(externalDir, "Paquetes");
+            if (!carpetaPaquetes.exists()) carpetaPaquetes.mkdir();
+
+            File carpeta2D = new File(carpetaPaquetes, "2D");
+            if (!carpeta2D.exists()) carpeta2D.mkdir();
+
+            File carpetaActivados = new File(carpeta2D, "Activados");
+            if (!carpetaActivados.exists()) carpetaActivados.mkdir();
+
+            // Definimos el archivo de destino como paq1.txt
+            File archivoDestino = new File(carpetaActivados, "paq1.txt");
+
+            // Preparamos el FileOutputStream para escribir en el archivo de destino
+            FileOutputStream fos = new FileOutputStream(archivoDestino);
+
+            // Buffer para copiar el archivo
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) > 0) {
+                fos.write(buffer, 0, length);
+            }
+
+            // Cerramos los streams
+            inputStream.close();
+            fos.close();
+
+        } catch (IOException e) {
+            // Mostramos el error en consola si ocurre algún problema
+            e.printStackTrace();
+        }
+    }
+
+
+    //  --Teclados--
     //Funcion para teclado dactilogo
-    private void showKeyboardDialog() {
+    private void TecladoDactilogo() {
         Dialog dialog = new Dialog(this); //Inicamos un dialogo para poder manehjar mejor el codigo y reutilizar el layout en otras clases java
         dialog.setContentView(R.layout.f1); //Vinculamos el dialogo con el layout
 
@@ -100,8 +181,8 @@ public class P2 extends AppCompatActivity {
         Enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String st = display.getText().toString(); //Obtenemos el texto de la casilla
-                IniciarAnimación(st); //Inicamos la animación que lee el texto y lo convierte en señas
+                s1 = display.getText().toString();
+                IniciarAnimación(); //Inicamos la animación que lee el texto y lo convierte en señas
                 dialog.dismiss(); //Cerramos el dialogo
             }
         });
@@ -162,21 +243,47 @@ public class P2 extends AppCompatActivity {
         dialog.show(); //Al cargar todo se abre el dialogo
     }
 
-    //Ingresamos los numeros
+    //Ingresamos los numeros en el teclado Dactilogo
     private void setNumberButtonListener(Dialog dialog, int buttonId, TextView display, String number) {
         dialog.findViewById(buttonId).setOnClickListener(v -> {
             display.append(number);
         });
     }
 
-    //Ingresamos las letras
+    //Ingresamos las letras en el teclado Dactilogo
     private void setLetterButtonListener(Dialog dialog, int buttonId, TextView display, String letter) {
         dialog.findViewById(buttonId).setOnClickListener(v -> {
             display.append(letter);
         });
     }
 
-    //Voz
+    //Funcion para teclado estandar
+    private void TecladoEstandar() {
+        // Creamos el cuadro de diálogo con un campo de texto
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Escribe algo");
+
+        // Usamos un layout para el cuadro de diálogo con un EditText
+        final EditText input = new EditText(this);
+        builder.setView(input);
+
+        // Configuramos el botón de "Aceptar" en el cuadro de diálogo
+        builder.setPositiveButton("Aceptar", (dialog, which) -> {
+            // Reemplazamos el texto de s1 con lo que el usuario escribió
+            s1 = input.getText().toString();
+
+            // Iniciamos la función de animación
+            IniciarAnimación();
+        });
+
+        // Mostramos el cuadro de diálogo
+        builder.show();
+    }
+    //  --Teclados--
+
+
+
+    //Procesamiento de la voz
     private void initializeSpeechRecognizer() {
         if (SpeechRecognizer.isRecognitionAvailable(this)) {
             speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
@@ -209,7 +316,9 @@ public class P2 extends AppCompatActivity {
                 @Override
                 public void onError(int error) {
                     // Manejar errores aquí
-                    cod2.setImageResource(R.drawable.r6);
+                    s1 = " ";
+                    cod2.setImageResource(R.drawable.vacio);
+                    cod3.setImageResource(R.drawable.r10);
                     Toast.makeText(P2.this, "Error en el reconocimiento de voz", Toast.LENGTH_SHORT).show();
                 }
 
@@ -218,9 +327,9 @@ public class P2 extends AppCompatActivity {
                     // Se han recibido resultados
                     ArrayList<String> matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
                     if (matches != null && !matches.isEmpty()) {
-                        String spokenText = matches.get(0);
-                        cod4.setText(spokenText);
-                        IniciarAnimación(spokenText);
+                        s1 = matches.get(0);
+                        cod4.setText(s1);
+                        IniciarAnimación();
                     }
                 }
 
@@ -237,22 +346,35 @@ public class P2 extends AppCompatActivity {
         }
     }
 
+    //Funcion para empezar a escuchar la voz humana y convertirla a texto
+    private void startSpeechRecognition() {
+        Intent recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "es-MX"); // Cambia a tu idioma preferido
+        recognizerIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Habla ahora");
+
+        cod3.setImageResource(R.drawable.r7); //Creamos un cambio en el boton para que el usuario reconozca que se esta grabando
+        speechRecognizer.startListening(recognizerIntent);
+    }
+
+
+
     //Animación que convierte todo a lenguaje de señas y lo muestra en el visor
-    private void IniciarAnimación(String spokenText) {
+    private void IniciarAnimación() {
 
         try {
             // Obtener las rutas de los archivos
-            File archivoSeñas = new File(this.getExternalFilesDir(null), "señas.txt");
+            File archivoSeñas = new File(this.getExternalFilesDir(null), "Paquetes/2D/Activados/paq1.txt");
             File archivoSeñaPalabras = new File(this.getExternalFilesDir(null), "señapalabras.txt");
 
             // Crear un handler para manejar la actualización de la UI
             Handler handler = new Handler();
 
             // Guardar el texto original para el subtítulo sin normalizar
-            final String subtituloText = spokenText;
+            final String subtituloText = s1;
 
             // Normalizar el texto hablado para comparaciones (solo se aplica a las letras)
-            String spokenTextNormalizado = Normalizer.normalize(spokenText.toLowerCase(), Normalizer.Form.NFD)
+            String spokenTextNormalizado = Normalizer.normalize(s1.toLowerCase(), Normalizer.Form.NFD)
                     .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
 
             // Dividir el texto hablado en palabras
@@ -374,26 +496,16 @@ public class P2 extends AppCompatActivity {
                     @Override
                     public void run() {
                         cod4.setText("");  // Limpiar el subtítulo cuando se termina de procesar la palabra
+                        cod2.setImageResource(R.drawable.vacio);  // Limpiar el visor de señas
                     }
                 }, delay);
             }
 
-            cod2.setImageResource(R.drawable.r6);  // Establecer la imagen final
+            cod3.setImageResource(R.drawable.r10);  // Establecer la imagen final
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    //Funcion para empezar a escuchar
-    private void startSpeechRecognition() {
-        Intent recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "es-MX"); // Cambia a tu idioma preferido
-        recognizerIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Habla ahora");
-
-        cod3.setImageResource(R.drawable.r7); //Creamos un cambio en el boton para que el usuario reconozca que se esta grabando
-        speechRecognizer.startListening(recognizerIntent);
     }
 
     //Se procesan los permisos
@@ -412,6 +524,10 @@ public class P2 extends AppCompatActivity {
     protected void onDestroy() {
         if (speechRecognizer != null) {
             speechRecognizer.destroy();
+        }
+        if (textToSpeech != null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();
         }
         super.onDestroy();
     }
