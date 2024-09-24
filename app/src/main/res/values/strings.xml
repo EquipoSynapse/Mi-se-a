@@ -15,11 +15,23 @@
     <string name="t10">Usuario clásico</string>
     <string name="t11">Usuario Premium</string>
 
-    <string name="app_description">Una app para ayudarte traducir, convertir y comunicarte de lenguaje hablado a lenguaje de signos.
+    <string name="app_description">Una app para ayudarte traducir, convertir y comunicarte de lenguaje hablado a lenguaje de signos. /n
 
-Es la primera aplicación multiplataforma que aporta bienestar y seguridad a la comunidad sordo muda nicaragüense.
-</string>
+        Es la primera aplicación multiplataforma que aporta bienestar y seguridad a la comunidad sordo muda nicaragüense.</string>
 
+        <string name="register_button">Regístrate</string>
+        <string name="enter_email">Ingrese su correo electrónico</string>
+        <string name="enter_password">Contraseña</string>
+        <string name="confirm_password">Confirmar Contraseña</string>
+        <string name="enter_name">Ingrese su nombre</string>
+        <string name="enter_surname">Ingrese su apellido</string>
+    <string name="fecha_de_nacimiento">Fecha de Nacimiento</string>
+    <string name="correo_electr_nico">Correo Electrónico</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="confirmar_contrase_a">Confirmar Contraseña</string>
+    <string name="reg_strate">Regístrate</string>
+    <string name="logo_description">Si ya tienes cuenta, inicia sesion</string>
+    <string name="bot_n_1">Butt</string>
 
 
 </resources>
