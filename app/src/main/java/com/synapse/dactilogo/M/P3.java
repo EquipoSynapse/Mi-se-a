@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,6 +34,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.synapse.dactilogo.P.P1;
+import com.synapse.dactilogo.P.P10;
+import com.synapse.dactilogo.P.P6;
+import com.synapse.dactilogo.P.P8;
+import com.synapse.dactilogo.P.P9;
 import com.synapse.dactilogo.R;
 
 import java.io.BufferedReader;
@@ -61,10 +66,17 @@ public class P3 extends AppCompatActivity {
     Dialog DIALOGO;
     int I1 = 500; //valor de velocidad
     private SharedPreferences PreferencesModo;
+    private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p3);
+
+        progressDialog = new ProgressDialog(P3.this);
+
+        // Verificar si el usuario ya está logueado
+        CargarDatos();
+
 
         PreferencesModo = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         //Iniciamos el paquete de señas inicial
@@ -144,7 +156,7 @@ public class P3 extends AppCompatActivity {
             Diologo_cod1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DIALOGO.dismiss();
+                    startActivity(new Intent(P3.this, P10.class));
                 }
             });
 
@@ -249,6 +261,24 @@ public class P3 extends AppCompatActivity {
             TecladoEstandar();
         });
         //    --Botones--
+    }
+
+    private void CargarDatos() {
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        SharedPreferences sharedPref = getSharedPreferences("USER_DATA", Context.MODE_PRIVATE);
+        boolean isLoggedIn = sharedPref.getBoolean("loggedIn", false);
+
+        if (!isLoggedIn) {
+            // Si el usuario no está logueado, redirigir a P9 directamente
+            Intent intent = getIntent();
+            String modoElegido = intent.getStringExtra("modo");
+            Intent i = new Intent(P3.this, P6.class);
+            i.putExtra("modo", modoElegido);
+            startActivity(i); // Lanzar la nueva actividad después de la animación
+            finish();  // Evitar que regrese a la pantalla
+        }
+        progressDialog.dismiss();
     }
 
     //Funcion para extraer el primer paquete de señas

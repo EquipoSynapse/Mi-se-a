@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/Fondo3"
+    tools:context=".P.P6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@drawable/fondo3"
+        android:backgroundTint="@color/Fondo0">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Unete a nosotros\nPara una mejor experiencia"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/Color0"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="50dp"
+            android:src="@drawable/logo"/>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/ID1"
+        android:layout_width="150dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_height="wrap_content"
+        android:text="Entrar"
+        android:textStyle="bold"
+        android:textColor="@color/Color0"
+        android:padding="10dp"
+        android:background="@drawable/fondo2"
+        android:backgroundTint="@color/Fondo0"/>
+
+    <TextView
+        android:id="@+id/ID2"
+        android:layout_width="150dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        android:textStyle="bold"
+        android:textColor="@color/Color0"
+        android:padding="10dp"
+        android:background="@drawable/fondo2"
+        android:backgroundTint="@color/Fondo0"/>
+
+</LinearLayout>

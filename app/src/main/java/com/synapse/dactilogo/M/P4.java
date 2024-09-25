@@ -8,10 +8,12 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -33,7 +35,18 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.synapse.dactilogo.P.P1;
+import com.synapse.dactilogo.P.P10;
+import com.synapse.dactilogo.P.P6;
+import com.synapse.dactilogo.P.P9;
 import com.synapse.dactilogo.R;
 
 import java.io.BufferedReader;
@@ -45,7 +58,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import com.synapse.dactilogo.E.VisorTridimencional;
+import com.synapse.dactilogo.E.Renderizador;
 
 public class P4 extends AppCompatActivity {
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
@@ -65,12 +81,21 @@ public class P4 extends AppCompatActivity {
     String s2 = "2D"; // Modo inicial
     Dialog DIALOGO;
     int I1 = 500; //valor de velocidad
+    private VisorTridimencional cod15;
+    private Renderizador myRenderer;
 
     private SharedPreferences PreferencesModo;
+    private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p4);
+
+        progressDialog = new ProgressDialog(P4.this);
+
+        // Verificar si el usuario ya está logueado
+        CargarDatos();
+
 
         PreferencesModo = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
@@ -82,6 +107,11 @@ public class P4 extends AppCompatActivity {
                 textToSpeech.setLanguage(new Locale("es", "ES"));
             }
         });
+
+        //Iniciamos el visor en 3D
+        cod15 = findViewById(R.id.ID15);
+        myRenderer = new Renderizador(this);
+        cod15.setSurfaceRenderer(myRenderer);
 
         // Inicializar SharedPreferences
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -159,7 +189,7 @@ public class P4 extends AppCompatActivity {
             Diologo_cod1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DIALOGO.dismiss();
+                    startActivity(new Intent(P4.this, P10.class));
                 }
             });
 
@@ -268,8 +298,12 @@ public class P4 extends AppCompatActivity {
         cod14.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 s2 = "3D"; // Cambiar a 3D si está activado
+                cod5.setVisibility(View.GONE);
+                cod15.setVisibility(View.VISIBLE);
             } else {
                 s2 = "2D"; // Cambiar a 2D si está desactivado
+                cod5.setVisibility(View.VISIBLE);
+                cod15.setVisibility(View.GONE);
             }
 
             // Guardar el nuevo estado del Switch en SharedPreferences
@@ -280,7 +314,63 @@ public class P4 extends AppCompatActivity {
         });
         //    --Botones--
     }
-    
+
+    private void CargarDatos() {
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        // Verificar si el usuario ya está logueado
+        SharedPreferences sharedPref = getSharedPreferences("USER_DATA", Context.MODE_PRIVATE);
+        boolean isLoggedIn = sharedPref.getBoolean("loggedIn", false);
+
+        if (!isLoggedIn) {
+            progressDialog.dismiss();
+            // Si el usuario no está logueado, redirigir a P9 directamente
+            Intent intent = getIntent();
+            String modoElegido = intent.getStringExtra("modo");
+            Intent i = new Intent(P4.this, P6.class);
+            i.putExtra("modo", modoElegido);
+            startActivity(i); // Lanzar la nueva actividad después de la animación
+            finish();  // Evitar que regrese a la pantalla
+        } else {
+            // El usuario está logueado, verificar si el nodo "Modo" es igual a "4"
+            String correo = sharedPref.getString("correo", null); // Obtener el correo guardado en SharedPreferences
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("USUARIOS_DE_APP").child(correo);
+
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        String modo = dataSnapshot.child("Modo").getValue(String.class);
+                        if (!"3".equals(modo)) {
+                            //El usuario no es premium
+                            Toast.makeText(P4.this, "Usted no es un usuario Premium", Toast.LENGTH_SHORT).show();
+                            Intent intent = getIntent();
+                            String modoElegido = intent.getStringExtra("modo");
+                            Intent i = new Intent(P4.this, P6.class);
+                            i.putExtra("modo", modoElegido);
+                            startActivity(i); // Lanzar la nueva actividad después de la animación
+                            finish();  // Evitar que regrese a la pantalla
+                        }
+                        progressDialog.dismiss();
+                    } else {
+                        progressDialog.dismiss();
+                        startActivity(new Intent(P4.this, P6.class));
+                        // El nodo del usuario no existe
+                        Toast.makeText(P4.this, "Usuario no encontrado en la base de datos", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Manejar errores en la base de datos
+                    Toast.makeText(P4.this, "Error de base de datos", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+
     //Funcion para extraer el primer paquete de señas
     private void PaquetePorDefecto() {
         try {

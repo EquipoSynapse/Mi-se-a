@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
-import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -20,7 +19,6 @@ import android.widget.LinearLayout;
 import com.synapse.dactilogo.M.P2;
 import com.synapse.dactilogo.M.P3;
 import com.synapse.dactilogo.M.P4;
-import com.synapse.dactilogo.MainActivity;
 import com.synapse.dactilogo.R;
 
 public class P1 extends AppCompatActivity {
@@ -139,16 +137,20 @@ public class P1 extends AppCompatActivity {
         // Ocultar el LinearLayout
         linearLayout.setVisibility(View.GONE);
 
-        if(I1 == 1){
+        if(I1 == 1 | I1 == 2 | I1 == 3 ){
             // Guardar el nuevo valor
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt("mi_int_clave", I);
             editor.apply();  // Guardar de forma asincrónica
         }
 
+
+
+
         // Usar un Handler para retrasar el lanzamiento de la nueva actividad
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(P1.this, nextActivity);
+            intent.putExtra("modo", String.valueOf(I));
             startActivity(intent); // Lanzar la nueva actividad después de la animación
             finish(); // Finalizar la actividad actual para no volver atrás
         }, 800); // El retraso es de 1 segundo (1000 milisegundos) para que la animación se aprecie

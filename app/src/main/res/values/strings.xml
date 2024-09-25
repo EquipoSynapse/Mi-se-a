@@ -18,11 +18,20 @@
     <string name="t13">Ofrece una experiencia personalizable. Con una cuenta gratuita, puedes acceder a una tienda de paquetes de señas (algunos gratuitos y otros de pago), cambiar el color de la aplicación y contactar con el soporte. También podrás subir tus propios paquetes de señas, aunque con una comisión del 50% si decides venderlos. La interfaz es intuitiva y las señas son presentadas en 2D.</string>
     <string name="t14">El nivel más avanzado de la aplicación. Incluye todas las características del Modo Perfil, pero con acceso adicional a señas en 3D y la posibilidad de subir tus paquetes de señas sin comisiones. Además, podrás utilizar la cámara para capturar señas en tiempo real y convertirlas automáticamente en voz, elevando la experiencia a otro nivel.</string>
 
+    <string name="t15">Escriba su correo</string>
+    <string name="t16">Escriba su contraseña</string>
+    <string name="t17">Escriba su nombre completo</string>
+    <string name="t18">Escriba su rol</string>
+
     <string name="app_description">Una app para ayudarte traducir, convertir y comunicarte de lenguaje hablado a lenguaje de signos.
 
 Es la primera aplicación multiplataforma que aporta bienestar y seguridad a la comunidad sordo muda nicaragüense.
 </string>
 
 
+    <string-array name="Profeciones">
+        <item><font color="#FFFFFFFF">Estudiante</font></item>
+        <item><font color="#FFFFFFFF">Docente</font></item>
+    </string-array>
 
 </resources>

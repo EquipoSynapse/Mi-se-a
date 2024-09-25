@@ -59,6 +59,7 @@ public class P5 extends AppCompatActivity {
     private void AceptarPermisos() {
         // Solicitar los permisos que faltan
         requestPermissions(new String[]{Manifest.permission.INTERNET, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
+        CARGAR();
     }
 
     private void CARGAR() {
