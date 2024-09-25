@@ -35,7 +35,6 @@ public class P1 extends AppCompatActivity {
         /*
 
         Se presentan los 3 modos
-
         Básico: Opciones simples sin tantos botones
         Perfil: opciones más avanzadas, con acceso a tienda y personalización
         Premium: Acceso a modelado 3D y modelos unicos
