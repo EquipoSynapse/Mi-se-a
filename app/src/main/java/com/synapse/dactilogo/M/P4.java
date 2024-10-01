@@ -60,8 +60,6 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import com.synapse.dactilogo.E.VisorTridimencional;
-import com.synapse.dactilogo.E.Renderizador;
 
 public class P4 extends AppCompatActivity {
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
@@ -81,8 +79,6 @@ public class P4 extends AppCompatActivity {
     String s2 = "2D"; // Modo inicial
     Dialog DIALOGO;
     int I1 = 500; //valor de velocidad
-    private VisorTridimencional cod15;
-    private Renderizador myRenderer;
 
     private SharedPreferences PreferencesModo;
     private ProgressDialog progressDialog;
@@ -109,9 +105,6 @@ public class P4 extends AppCompatActivity {
         });
 
         //Iniciamos el visor en 3D
-        cod15 = findViewById(R.id.ID15);
-        myRenderer = new Renderizador(this);
-        cod15.setSurfaceRenderer(myRenderer);
 
         // Inicializar SharedPreferences
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -299,11 +292,9 @@ public class P4 extends AppCompatActivity {
             if (isChecked) {
                 s2 = "3D"; // Cambiar a 3D si está activado
                 cod5.setVisibility(View.GONE);
-                cod15.setVisibility(View.VISIBLE);
             } else {
                 s2 = "2D"; // Cambiar a 2D si está desactivado
                 cod5.setVisibility(View.VISIBLE);
-                cod15.setVisibility(View.GONE);
             }
 
             // Guardar el nuevo estado del Switch en SharedPreferences

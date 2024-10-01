@@ -27,7 +27,11 @@
         <activity android:name=".M.P3" />
         <activity android:name=".M.P4" />
         <activity android:name=".M.P2" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".P.P6" />
+        <activity android:name=".P.P7" />
+        <activity android:name=".P.P8" />
+        <activity android:name=".P.P9" />
+        <activity android:name=".P.P10" />
 
         <!-- Actividad de lanzador principal -->
         <activity
