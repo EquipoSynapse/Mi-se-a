@@ -3,6 +3,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,8 +37,8 @@ public class PaqueteAdapter extends RecyclerView.Adapter<PaqueteAdapter.PaqueteV
         holder.autorPaquete.setText(paquete.getAutor());
         holder.pesoPaquete.setText("Peso: " + paquete.getPeso() + " MB");
         holder.valorPaquete.setText("Valor: $" + paquete.getValor());
-        holder.descripcionPaquete.setText(paquete.getDescripcion());
         holder.cantidadSenias.setText("Señas: " + paquete.getCantidadSenias());
+
 
         holder.itemView.setOnClickListener(v -> listener.onPaqueteClick(paquete));
     }
@@ -48,15 +49,16 @@ public class PaqueteAdapter extends RecyclerView.Adapter<PaqueteAdapter.PaqueteV
     }
 
     public static class PaqueteViewHolder extends RecyclerView.ViewHolder {
-        TextView nombrePaquete, autorPaquete, pesoPaquete, valorPaquete, descripcionPaquete, cantidadSenias;
+        TextView nombrePaquete, autorPaquete, pesoPaquete, valorPaquete, cantidadSenias;
+
 
         public PaqueteViewHolder(@NonNull View itemView) {
             super(itemView);
+
             nombrePaquete = itemView.findViewById(R.id.nombre_paquete);
             autorPaquete = itemView.findViewById(R.id.autor_paquete);
             pesoPaquete = itemView.findViewById(R.id.peso_paquete);
             valorPaquete = itemView.findViewById(R.id.valor_paquete);
-            descripcionPaquete = itemView.findViewById(R.id.descripcion_paquete);
             cantidadSenias = itemView.findViewById(R.id.cantidad_senias);
         }
     }
