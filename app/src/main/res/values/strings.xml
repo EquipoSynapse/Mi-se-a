@@ -23,10 +23,19 @@
     <string name="t17">Escriba su nombre completo</string>
     <string name="t18">Escriba su rol</string>
 
+
+
     <string name="app_description">Una app para ayudarte traducir, convertir y comunicarte de lenguaje hablado a lenguaje de signos.
 
 Es la primera aplicación multiplataforma que aporta bienestar y seguridad a la comunidad sordo muda nicaragüense.
 </string>
+
+    <string name="perfil">Perfil</string>
+    <string name="logo_de_la_aplicaci_n">Logo de la aplicación</string>
+    <string name="buscar_paquetes">Buscar paquetes...</string>
+    <string name="buscar">Buscar</string>
+    <string name="logo_de_la_aplicacion">Logo de la aplicación</string>
+    <string name="tienda_de_paquetes">Tienda de Paquetes</string>
 
 
     <string-array name="Profeciones">
@@ -35,3 +44,4 @@ Es la primera aplicación multiplataforma que aporta bienestar y seguridad a la 
     </string-array>
 
 </resources>
+
