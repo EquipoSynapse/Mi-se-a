@@ -3,47 +3,68 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:background="@drawable/fondo2"
+    android:backgroundTint="@color/Fondo3"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="8dp">
 
-    <TextView
-        android:id="@+id/nombre_paquete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre del paquete"
-        android:textStyle="bold"
-        android:textSize="18sp"/>
+    <!-- Imagen del paquete -->
+    <ImageView
+        android:id="@+id/imagen_paquete"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/pr2"
+        android:layout_marginEnd="16dp" />
 
-    <TextView
-        android:id="@+id/autor_paquete"
-        android:layout_width="wrap_content"
+    <!-- Información del paquete -->
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Autor"
-        android:textSize="16sp" />
+        android:orientation="vertical"
+        android:layout_weight="2">
 
-    <TextView
-        android:id="@+id/peso_paquete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Peso" />
+        <TextView
+            android:id="@+id/nombre_paquete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del paquete"
+            android:textStyle="bold"
+            android:textColor="@color/Color0"
+            android:textSize="18sp"/>
 
-    <TextView
-        android:id="@+id/valor_paquete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Valor" />
+        <TextView
+            android:id="@+id/autor_paquete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Autor"
+            android:textColor="@color/Fondo1"
+            android:textSize="17sp" />
 
-    <TextView
-        android:id="@+id/cantidad_senias"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cantidad de señas" />
+        <TextView
+            android:id="@+id/peso_paquete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="@color/Fondo1"
+            android:text="Peso" />
 
-    <TextView
-        android:id="@+id/descripcion_paquete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Descripción breve" />
+        <TextView
+            android:id="@+id/valor_paquete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="@color/Fondo1"
+            android:text="Valor" />
+
+        <TextView
+            android:id="@+id/cantidad_senias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="@color/Fondo1"
+            android:text="Cantidad de señas" />
+    </LinearLayout>
 
 </LinearLayout>
