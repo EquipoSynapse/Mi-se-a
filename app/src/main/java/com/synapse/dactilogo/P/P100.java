@@ -1,7 +1,9 @@
 package com.synapse.dactilogo.P;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,8 +11,9 @@ import com.synapse.dactilogo.R;
 
 public class P100 extends AppCompatActivity {
 
-    private ImageView imagenBasico1, imagenBasico2, imagenBasico3, imagenPerfil1, imagenPerfil2, imagenPremium1, imagenPremium2;
+    private ImageView cod0, imagenBasico1, imagenBasico2, imagenBasico3;
     private TextView textBasico, textPerfilTitle, textPremiumTitle;
+    LinearLayout cod1, cod2,cod3,cod4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,24 +24,11 @@ public class P100 extends AppCompatActivity {
         imagenBasico1 = findViewById(R.id.imagen_basico_1);
         imagenBasico2 = findViewById(R.id.imagen_basico_2);
         imagenBasico3 = findViewById(R.id.imagen_basico_3);
-        imagenPerfil1 = findViewById(R.id.imagen_perfil_1);
-        imagenPerfil2 = findViewById(R.id.imagen_perfil_2);
-        imagenPremium1 = findViewById(R.id.imagen_premium_1);
-        imagenPremium2 = findViewById(R.id.imagen_premium_2);
-        textBasico = findViewById(R.id.text_basico);
-        textPerfilTitle = findViewById(R.id.text_perfil_title);
-        textPremiumTitle = findViewById(R.id.text_premium_title);
-
-        // Cargar imágenes desde drawable (en lugar de Firebase)
-        imagenBasico1.setImageResource(R.drawable.b1);
-        imagenBasico2.setImageResource(R.drawable.b2);
-        imagenBasico3.setImageResource(R.drawable.b3);
-
-        imagenPerfil1.setImageResource(R.drawable.p1);
-        imagenPerfil2.setImageResource(R.drawable.p2);
-
-        imagenPremium1.setImageResource(R.drawable.pr1);
-        imagenPremium2.setImageResource(R.drawable.pr2);
+        cod0 = findViewById(R.id.ID1);
+        cod1 = findViewById(R.id.ID2);
+        cod2 = findViewById(R.id.ID3);
+        cod3 = findViewById(R.id.ID4);
+        cod4 = findViewById(R.id.ID5);
 
         // Listener para redirigir a P300 con la categoría Básico
         imagenBasico1.setOnClickListener(v -> abrirP300("Básico"));
@@ -46,12 +36,20 @@ public class P100 extends AppCompatActivity {
         imagenBasico3.setOnClickListener(v -> abrirP300("Básico"));
 
         // Listener para redirigir a P300 con la categoría Perfil
-        imagenPerfil1.setOnClickListener(v -> abrirP300("Perfil"));
-        imagenPerfil2.setOnClickListener(v -> abrirP300("Perfil"));
+        cod1.setOnClickListener(v -> abrirP300("Perfil"));
+        cod2.setOnClickListener(v -> abrirP300("Perfil"));
 
         // Listener para redirigir a P300 con la categoría Premium
-        imagenPremium1.setOnClickListener(v -> abrirP300("Premium"));
-        imagenPremium2.setOnClickListener(v -> abrirP300("Premium"));
+        cod3.setOnClickListener(v -> abrirP300("Premium"));
+        cod4.setOnClickListener(v -> abrirP300("Premium"));
+
+        cod0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(P100.this, P13.class); // Intent para iniciar la actividad P1
+                startActivity(intent); // Iniciar la nueva actividad
+            }
+        });
     }
 
     // Método para abrir la pantalla P300

@@ -8,8 +8,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.synapse.dactilogo.M.Paquete;
-import com.synapse.dactilogo.M.PaqueteAdapter;
+import com.synapse.dactilogo.E.Paquete;
+import com.synapse.dactilogo.E.PaqueteAdapter;
 import com.synapse.dactilogo.R;
 
 import java.util.ArrayList;
@@ -32,9 +32,12 @@ public class P300 extends AppCompatActivity {
 
         // Lista de paquetes de ejemplo
         paqueteList = new ArrayList<>();
-        paqueteList.add(new Paquete("Paquete 1", "Autor 1", 10.5, 5, 100));
-        paqueteList.add(new Paquete("Paquete 2", "Autor 2", 8.2, 6, 120));
-        paqueteList.add(new Paquete("Paquete 3", "Autor 3", 15.7, 7, 200));
+
+
+        paqueteList.add(new Paquete("Saludos", "Synapse", 10.5, 5, 100));
+        paqueteList.add(new Paquete("Colores", "Synapse", 8.2, 6, 120));
+        paqueteList.add(new Paquete("Adjetivos Calificativos", "Synapse", 15.7, 7, 200));
+        paqueteList.add(new Paquete("Pronombres", "Synapse", 8.2, 6, 120));
 
         // Configurar el adaptador
         adapter = new PaqueteAdapter(this, paqueteList, this::mostrarDialogoPaquete);

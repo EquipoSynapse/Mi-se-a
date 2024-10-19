@@ -35,6 +35,7 @@ import android.widget.Toast;
 
 import com.synapse.dactilogo.P.P1;
 import com.synapse.dactilogo.P.P10;
+import com.synapse.dactilogo.P.P100;
 import com.synapse.dactilogo.P.P6;
 import com.synapse.dactilogo.P.P8;
 import com.synapse.dactilogo.P.P9;
@@ -137,6 +138,10 @@ public class P3 extends AppCompatActivity {
             }
         });
 
+        cod3.setOnClickListener(view -> {
+                Intent intent = new Intent(P3.this, P100.class); // Intent para iniciar la actividad P1
+                startActivity(intent); // Iniciar la nueva actividad
+        });
 
         cod4.setOnClickListener(view -> {
             DIALOGO.setContentView(R.layout.f2);

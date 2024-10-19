@@ -1,4 +1,4 @@
-package com.synapse.dactilogo.M;
+package com.synapse.dactilogo.E;
 
 public class Paquete {
     private String nombre;

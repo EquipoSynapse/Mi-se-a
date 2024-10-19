@@ -1,58 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/Fondo1"
+    android:padding="10dp"
+    tools:context=".P.P100">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
         <!-- Encabezado con logo y título -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:orientation="horizontal">
 
             <!-- Logo -->
             <ImageView
-                android:id="@+id/logo"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/logo"
-                android:contentDescription="Logo de la tienda" />
+                android:src="@drawable/logo" />
 
             <!-- Título de la tienda -->
             <TextView
-                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:textColor="@color/Color0"
                 android:text="Mi Tienda"
-                android:textSize="24sp"
+                android:textSize="12dp"
                 android:textStyle="bold" />
+
+
+            <ImageView
+                android:id="@+id/ID1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/r31"
+                android:padding="5dp"
+                app:tint="@color/Fondo3" />
+
         </LinearLayout>
 
         <!-- Descripción breve de la tienda -->
 
         <!-- Categoria Básico -->
         <TextView
-            android:id="@+id/store_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Explora las mejores ofertas."
-            android:textSize="18sp" />
+            android:textSize="12dp"
+            android:textColor="@color/Color0"
+            android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/text_basico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nuestros Paquetes"
-            android:textSize="19sp"
+            android:textSize="12dp"
+            android:textColor="@color/Color1"
+            android:textStyle="bold"
             android:layout_margin="8dp" />
 
         <HorizontalScrollView
@@ -96,8 +110,10 @@
             android:id="@+id/text_perfil_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Paquetes 2D"
-            android:textSize="18sp"
+            android:text="Paquetes gratuitos"
+            android:textSize="12dp"
+            android:textColor="@color/Color1"
+            android:textStyle="bold"
             android:layout_margin="8dp" />
 
         <LinearLayout
@@ -108,6 +124,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/ID2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -117,23 +134,24 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imagen_perfil_1"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/p1"
+                    android:src="@drawable/r29"
                     android:layout_margin="8dp" />
 
                 <TextView
-                    android:id="@+id/text_perfil_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Paquetes 2D"
-                    android:textSize="18sp"
+                    android:textColor="@color/Color2"
+                    android:textSize="10dp"
+                    android:textStyle="bold"
                     android:layout_margin="8dp" />
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ID3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -142,19 +160,19 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imagen_perfil_2"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_margin="8dp"
-                    android:src="@drawable/p2" />
+                    android:src="@drawable/r30" />
 
                 <TextView
-                    android:id="@+id/text_perfil_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Paquetes 2D"
-                    android:textSize="18sp"
-                    android:layout_margin="8dp" />
+                    android:layout_margin="8dp"
+                    android:text="Paquetes 3D"
+                    android:textColor="@color/Color2"
+                    android:textSize="10dp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -162,12 +180,13 @@
 
         <!-- Categoria Premium -->
         <TextView
-            android:id="@+id/text_premium_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Paquetes de paga 2D y 3D"
-            android:textSize="18sp"
-            android:layout_margin="8dp" />
+            android:text="Paquetes de paga"
+            android:textColor="@color/Color1"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_margin="8dp"  />
 
         <LinearLayout
             android:gravity="center_vertical"
@@ -177,6 +196,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/ID4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -185,23 +205,24 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imagen_premium_1"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/pr1"
+                    android:src="@drawable/r29"
                     android:layout_margin="8dp" />
 
                 <TextView
-                    android:id="@+id/text_premium_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Paquetes 2D"
-                    android:textSize="18sp"
+                    android:textSize="10dp"
+                    android:textColor="@color/Color2"
+                    android:textStyle="bold"
                     android:layout_margin="8dp" />
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ID5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -210,18 +231,18 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imagen_premium_2"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/pr2"
+                    android:src="@drawable/r30"
                     android:layout_margin="8dp" />
 
                 <TextView
-                    android:id="@+id/text_premium_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Paquetes 3D"
-                    android:textSize="18sp"
+                    android:textSize="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Color2"
                     android:layout_margin="8dp" />
 
             </LinearLayout>

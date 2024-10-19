@@ -46,7 +46,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.synapse.dactilogo.E.MyRenderer;
 import com.synapse.dactilogo.P.P1;
 import com.synapse.dactilogo.P.P10;
+import com.synapse.dactilogo.P.P100;
 import com.synapse.dactilogo.P.P11;
+import com.synapse.dactilogo.P.P5;
 import com.synapse.dactilogo.P.P6;
 import com.synapse.dactilogo.P.P9;
 import com.synapse.dactilogo.R;
@@ -189,6 +191,11 @@ public class P4 extends AppCompatActivity {
             }
         });
 
+
+        cod3.setOnClickListener(view -> {
+            Intent intent = new Intent(P4.this, P100.class); // Intent para iniciar la actividad P1
+            startActivity(intent); // Iniciar la nueva actividad
+        });
 
         cod4.setOnClickListener(view -> {
             DIALOGO.setContentView(R.layout.f2);
