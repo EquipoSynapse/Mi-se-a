@@ -25,7 +25,7 @@
         android:padding="3dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/fondo2"
-        android:backgroundTint="@color/Fondo3"
+        android:backgroundTint="@color/Fondo2"
         android:orientation="vertical">
 
 
@@ -40,7 +40,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:text="1"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -53,7 +53,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:text="2"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -66,7 +66,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:text="3"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -79,7 +79,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:text="4"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -92,7 +92,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:text="5"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -105,7 +105,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:text="6"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -118,7 +118,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:text="7"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -131,7 +131,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:text="8"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -144,7 +144,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:text="9"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -157,7 +157,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:text="0"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -179,7 +179,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s17"/>
 
             <ImageView
@@ -188,7 +188,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s23"/>
 
             <ImageView
@@ -197,7 +197,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s5"/>
 
             <ImageView
@@ -206,7 +206,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s18"/>
 
             <ImageView
@@ -215,7 +215,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s20"/>
 
             <ImageView
@@ -224,7 +224,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s25"/>
 
             <ImageView
@@ -233,7 +233,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s21"/>
 
             <ImageView
@@ -242,7 +242,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s9"/>
 
             <ImageView
@@ -251,7 +251,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s15"/>
 
             <ImageView
@@ -260,7 +260,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s16"/>
 
 
@@ -283,7 +283,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s1"/>
 
             <ImageView
@@ -292,7 +292,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s19"/>
 
             <ImageView
@@ -301,7 +301,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s4"/>
 
             <ImageView
@@ -310,7 +310,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s6"/>
 
             <ImageView
@@ -319,7 +319,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s7"/>
 
             <ImageView
@@ -328,7 +328,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s8"/>
 
             <ImageView
@@ -337,7 +337,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s10"/>
 
             <ImageView
@@ -346,7 +346,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s11"/>
 
             <ImageView
@@ -355,7 +355,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s12"/>
 
             <ImageView
@@ -389,7 +389,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s26"/>
 
             <ImageView
@@ -398,7 +398,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s24"/>
 
             <ImageView
@@ -407,7 +407,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s3"/>
 
             <ImageView
@@ -416,7 +416,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s22"/>
 
             <ImageView
@@ -425,7 +425,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s2"/>
 
             <ImageView
@@ -434,7 +434,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s14"/>
 
             <ImageView
@@ -443,7 +443,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo2"
-                android:backgroundTint="@color/Fondo2"
+                android:backgroundTint="@color/Fondo3"
                 android:src="@drawable/pack_s13"/>
 
             <ImageView
@@ -467,7 +467,7 @@
         android:layout_height="40dp"
         android:layout_margin="10dp"
         android:background="@drawable/fondo2"
-        android:backgroundTint="@color/Fondo2"
+        android:backgroundTint="@color/Fondo3"
         android:text="Enviar"
         android:textStyle="bold"
         android:gravity="center"

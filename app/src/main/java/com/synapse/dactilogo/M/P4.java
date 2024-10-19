@@ -43,11 +43,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.synapse.dactilogo.E.MyRenderer;
 import com.synapse.dactilogo.P.P1;
 import com.synapse.dactilogo.P.P10;
+import com.synapse.dactilogo.P.P11;
 import com.synapse.dactilogo.P.P6;
 import com.synapse.dactilogo.P.P9;
 import com.synapse.dactilogo.R;
+
+import org.rajawali3d.view.SurfaceView;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -57,7 +61,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.Normalizer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -79,6 +85,11 @@ public class P4 extends AppCompatActivity {
     String s2 = "2D"; // Modo inicial
     Dialog DIALOGO;
     int I1 = 500; //valor de velocidad
+    private MyRenderer myRenderer; //Render de Visor 3D
+
+    private boolean isRecording = false; // Estado de grabación
+    private File outputFile;
+    private StringBuilder stringBuilder = new StringBuilder(); // Acumulador de texto
 
     private SharedPreferences PreferencesModo;
     private ProgressDialog progressDialog;
@@ -140,6 +151,21 @@ public class P4 extends AppCompatActivity {
         cod12 = findViewById(R.id.ID12); //Boton convertir a voz
         cod13 = findViewById(R.id.ID13); //Boton teclado estandar
         cod14 = findViewById(R.id.ID14); //Definir modo 2D o 3D para la animación de señas
+        SurfaceView Cod15 = findViewById(R.id.ID15); //Visor 3D
+
+        //Visor 3D
+        Cod15.setFrameRate(60.0);
+
+        // Evitar conflicto de constante usando el valor explícito
+        Cod15.setFrameRate(60.0);
+
+        // Evitar conflicto de constante usando el valor explícito
+        Cod15.setRenderMode(1);  // RENDERMODE_CONTINUOUSLY == 1
+
+        myRenderer = new MyRenderer(this);
+        Cod15.setSurfaceRenderer(myRenderer);
+
+
         DIALOGO = new Dialog(this);
         //    --Vinculación de las ID del layout--
 
@@ -271,6 +297,36 @@ public class P4 extends AppCompatActivity {
         //Activar función para grabar voz
         cod6.setOnClickListener(view -> startSpeechRecognition());
 
+        //Abrir camara
+        cod9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(P4.this, P11.class));
+            }
+        });
+
+        cod10.setOnClickListener(v -> {
+            isRecording = !isRecording; // Alternar el estado de grabación
+
+            if (isRecording) {
+                // Iniciar una nueva grabación con un nuevo archivo nombrado con la hora actual
+                String timeStamp = new SimpleDateFormat("HHmmss", Locale.getDefault()).format(new Date());
+                File folder = new File(getExternalFilesDir(null), "grabaciones");
+
+                if (!folder.exists()) {
+                    folder.mkdirs(); // Crear la carpeta si no existe
+                }
+
+                outputFile = new File(folder, "grabacion_" + timeStamp + ".txt");
+                stringBuilder.setLength(0); // Limpiar el acumulador de texto
+                Toast.makeText(P4.this, "Grabación iniciada", Toast.LENGTH_SHORT).show();
+            } else {
+                // Detener la grabación y guardar lo que queda
+                guardarTextoEnArchivo();
+                Toast.makeText(P4.this, "Grabación detenida", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         //Activar función para teclado dactilogo
         cod11.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -291,10 +347,12 @@ public class P4 extends AppCompatActivity {
         cod14.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 s2 = "3D"; // Cambiar a 3D si está activado
+                Cod15.setVisibility(View.VISIBLE);
                 cod5.setVisibility(View.GONE);
             } else {
                 s2 = "2D"; // Cambiar a 2D si está desactivado
                 cod5.setVisibility(View.VISIBLE);
+                Cod15.setVisibility(View.GONE);
             }
 
             // Guardar el nuevo estado del Switch en SharedPreferences
@@ -575,6 +633,12 @@ public class P4 extends AppCompatActivity {
                         s1 = matches.get(0);
                         cod7.setText(s1);
                         IniciarAnimación();
+
+
+                        stringBuilder.append(s1).append("                   ");
+
+                        // Guardar en el archivo cada vez que haya nueva entrada
+                        guardarTextoEnArchivo();
                     }
                 }
 
@@ -602,7 +666,19 @@ public class P4 extends AppCompatActivity {
         speechRecognizer.startListening(recognizerIntent);
     }
 
-
+    // Guardar el contenido del StringBuilder en el archivo o modo de grabar
+    private void guardarTextoEnArchivo() {
+        if (outputFile != null && stringBuilder.length() > 0) {
+            try (FileOutputStream fos = new FileOutputStream(outputFile, true)) { // 'true' para añadir al archivo
+                fos.write(stringBuilder.toString().getBytes());
+                fos.flush();
+                stringBuilder.setLength(0); // Limpiar el acumulador después de guardar
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(this, "Error al guardar el archivo", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
     //Animación que convierte todo a lenguaje de señas y lo muestra en el visor
     private void IniciarAnimación() {
@@ -756,6 +832,7 @@ public class P4 extends AppCompatActivity {
     //Se procesan los permisos
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_RECORD_AUDIO_PERMISSION) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 initializeSpeechRecognizer();

@@ -8,9 +8,11 @@
         android:required="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -19,11 +21,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiSeña">
-
         <!-- Pantalla de bienvenida -->
-        <activity android:name=".WelcomeActivity"/>
-
-        <activity android:name=".P.P1"/>
+        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".P.P1" />
         <activity android:name=".M.P3" />
         <activity android:name=".M.P4" />
         <activity android:name=".M.P2" />
@@ -32,17 +32,17 @@
         <activity android:name=".P.P8" />
         <activity android:name=".P.P9" />
         <activity android:name=".P.P10" />
-
-        <!-- Actividad de lanzador principal -->
+        <activity android:name=".P.P11" />
+        <activity android:name=".E.MainActivity" />
         <activity
             android:name=".P.P5"
             android:exported="true"> <!-- Se agrega android:exported -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

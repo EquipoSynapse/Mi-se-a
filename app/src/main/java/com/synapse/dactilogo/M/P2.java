@@ -51,7 +51,7 @@ public class P2 extends AppCompatActivity {
     TextView cod4; //Subtitulos
     ImageView cod5, cod6, cod7; //Boton teclado dactilo - Boton convertir a voz - Boton teclado estandar
     String s1 = " "; //Palabras analizadas ya sean escritas o habladas
-    private SharedPreferences PreferencesModo;
+    private SharedPreferences PreferencesModo; //Recordar el texto ingresado
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -519,6 +519,7 @@ public class P2 extends AppCompatActivity {
     //Se procesan los permisos
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_RECORD_AUDIO_PERMISSION) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 initializeSpeechRecognizer();
