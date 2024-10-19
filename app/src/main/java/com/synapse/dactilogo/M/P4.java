@@ -45,6 +45,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.synapse.dactilogo.P.P1;
 import com.synapse.dactilogo.P.P10;
+import com.synapse.dactilogo.P.P100;
 import com.synapse.dactilogo.P.P6;
 import com.synapse.dactilogo.P.P9;
 import com.synapse.dactilogo.R;
@@ -156,6 +157,19 @@ public class P4 extends AppCompatActivity {
                 Intent intent = new Intent(P4.this, P1.class);
                 startActivity(intent); // Lanzar la nueva actividad
                 finish();
+                // Guardar el nuevo valor
+                SharedPreferences.Editor editor = PreferencesModo.edit();
+                editor.putInt("mi_int_clave", 0);
+                editor.apply();  // Guardar de forma asincrónica
+            }
+        });
+
+        cod3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(P4.this, P100.class);
+                startActivity(intent); // Lanzar la nueva actividad
+
                 // Guardar el nuevo valor
                 SharedPreferences.Editor editor = PreferencesModo.edit();
                 editor.putInt("mi_int_clave", 0);
