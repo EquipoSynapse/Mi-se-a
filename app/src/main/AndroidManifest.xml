@@ -32,6 +32,9 @@
         <activity android:name=".P.P8" />
         <activity android:name=".P.P9" />
         <activity android:name=".P.P10" />
+        <activity android:name=".P.P100"/>
+        <activity android:name=".P.P300"/>
+        ¡
 
         <!-- Actividad de lanzador principal -->
         <activity

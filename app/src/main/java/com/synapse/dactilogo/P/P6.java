@@ -30,7 +30,7 @@ public class P6 extends AppCompatActivity {
         });
 
         cod2.setOnClickListener(view -> {
-            Intent i = new Intent(P6.this, P7.class);
+            Intent i = new Intent(P6.this, P100.class);
             i.putExtra("modo", modoElegido);
             startActivity(i); // Lanzar la nueva actividad después de la animación
         });
